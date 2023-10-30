@@ -1,0 +1,22 @@
+app: askpyfesh-serverless-class
+service: family-test
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  stage: stage
+  runtime: python3.8
+  timeout: 30
+  region: eu-west-2
+  memorySize: 512
+
+functions:
+  test3:
+    handler: askpyfesh0_post.handler
+    description: test post
+
+    events:
+      - http:
+          path: family/askpyfesh0_post
+          method: post
